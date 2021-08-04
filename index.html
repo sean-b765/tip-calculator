@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+
+		<link rel="stylesheet" href="./styles/main.css" />
+
+		<title>Frontend Mentor | Tip calculator app</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="title fw700">SPLI<br />TTER</div>
+
+			<div class="container__inner">
+				<!-- form shown on left-desktop, top-mobile -->
+				<div class="container--form">
+					<label>
+						Bill
+						<div class="input-wrapper">
+							<img src="./images/icon-dollar.svg" />
+							<input
+								type="text"
+								value="0"
+								id="textBill"
+								class="fw700 full-width"
+							/>
+						</div>
+					</label>
+
+					<label>
+						Select Tip %
+						<div class="select__tip">
+							<button value="5%" class="buttonSelectTip rounded fw700">
+								5%
+							</button>
+							<button value="10%" class="buttonSelectTip rounded fw700">
+								10%
+							</button>
+							<button value="15%" class="buttonSelectTip rounded fw700">
+								15%
+							</button>
+							<button value="25%" class="buttonSelectTip rounded fw700">
+								25%
+							</button>
+							<button value="50%" class="buttonSelectTip rounded fw700">
+								50%
+							</button>
+
+							<input
+								type="text"
+								placeholder="..."
+								id="textCustom"
+								class="fw700 text-button rounded"
+							/>
+						</div>
+					</label>
+
+					<label>
+						<p>
+							<span class="title">Number of People</span>
+							<span class="status" id="textStatus"></span>
+						</p>
+						<div class="input-wrapper">
+							<img src="./images/icon-person.svg" />
+							<input
+								type="text"
+								value="1"
+								id="textPeople"
+								class="fw700 full-width"
+							/>
+						</div>
+					</label>
+				</div>
+				<!-- Preview shown on right-desktop, bottom-mobile -->
+				<div class="container--preview">
+					<div class="container--preview__preview">
+						<label>
+							<p>Tip Amount <span class="subtext">/ person</span></p>
+							<span id="spanTipPer" class="fw700">$0.00</span>
+						</label>
+						<label>
+							<p>Total <span class="subtext">/ person</span></p>
+							<span id="spanTotalPer" class="fw700">$0.00</span>
+						</label>
+					</div>
+					<div class="container--preview__reset">
+						<button
+							id="buttonReset"
+							class="fw700 uppercase rounded fill-width reset"
+						>
+							Reset
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="attribution">
+			Challenge by
+			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Sean B</a>.
+		</div>
+
+		<script src="./scripts/app.js"></script>
+	</body>
+</html>

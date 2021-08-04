@@ -1,0 +1,261 @@
+@import url('https://fonts.google.com/specimen/Space+Mono');
+@import './queries';
+
+$cyan-p-1: hsl(172, 67%, 45%);
+
+$cyan-s-1: hsl(189, 41%, 97%);
+$cyan-s-2: hsl(185, 41%, 84%);
+$cyan-s-3: hsl(184, 14%, 56%);
+$cyan-s-4: hsl(186, 14%, 43%);
+$cyan-s-5: hsl(183, 100%, 15%);
+
+$white: white;
+
+$button-width: 80px;
+
+* {
+	font-family: 'Space Mono', monospace;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+body {
+	overflow-x: hidden;
+	background: $cyan-s-2;
+}
+
+.fw700 {
+	font-weight: 700;
+}
+
+.fill-width {
+	width: 100% !important;
+}
+
+button,
+.text-button {
+	border: none;
+	padding: 7px 23px;
+	background: hsl(183, 100%, 15%);
+	color: $cyan-s-1;
+	font-size: 18px;
+	width: $button-width;
+	margin: 5px 0;
+	cursor: pointer;
+	transition: background 0.2s ease;
+
+	&.active {
+		background: $cyan-p-1;
+		color: $cyan-s-5;
+	}
+
+	&.rounded {
+		border-radius: 4px;
+	}
+
+	&.reset {
+		background: $cyan-p-1;
+		color: $cyan-s-5;
+		&:hover {
+			background: $cyan-s-2;
+		}
+	}
+	&.locked {
+		background: $cyan-s-4;
+		&:hover {
+			background: $cyan-s-4;
+		}
+	}
+}
+.input-wrapper {
+	position: relative;
+	width: 100%;
+
+	img {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		padding: 0 12px;
+		scale: 0.75;
+	}
+}
+
+input[type='text'] {
+	width: 100%;
+	padding: 4px 9px;
+	margin-top: 2px;
+	border-radius: 4px;
+	text-align: end;
+	font-size: 18px;
+	background: rgb(245, 245, 245);
+	border: 2px solid $cyan-s-1;
+	color: $cyan-s-5;
+
+	transition: border 0.2s ease;
+
+	&.text-button {
+		padding: 5px 10px;
+		font-size: 18px;
+		width: $button-width;
+
+		&:focus {
+			background: $cyan-s-1;
+			border: 2px solid $cyan-p-1;
+			outline: none;
+		}
+	}
+
+	&:focus {
+		background: $cyan-s-1;
+		border: 2px solid $cyan-p-1;
+		outline: none;
+	}
+
+	&.error {
+		border: 2px solid #c47863 !important;
+	}
+}
+
+.container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	min-height: 70vh;
+	height: auto;
+	margin: auto;
+	padding: 5rem 2rem;
+
+	> .title {
+		padding-bottom: 5rem;
+		font-size: 2rem;
+	}
+
+	.container__inner {
+		width: auto;
+		height: 100%;
+		position: relative;
+		border-radius: 20px;
+		background: $white;
+		padding: 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+
+		.container--form {
+			position: relative;
+			flex: 1;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			flex-direction: column;
+			padding: 1rem 2rem 1rem 1rem;
+
+			label {
+				width: 100%;
+				margin-bottom: 30px;
+				display: flex;
+				flex-direction: column;
+				color: hsl(186, 14%, 43%);
+				font-weight: 700;
+				font-size: 0.8rem;
+
+				.select__tip {
+					display: flex;
+					align-items: flex-start;
+					justify-content: space-evenly;
+					flex-wrap: wrap;
+
+					> * {
+						margin: 5px;
+					}
+
+					@include mobile {
+						justify-content: center;
+						> * {
+							width: calc(50% - 10px);
+						}
+					}
+				}
+
+				> p {
+					display: flex;
+					justify-content: space-between;
+					.status {
+						color: #c47863;
+					}
+				}
+			}
+		}
+
+		.container--preview {
+			position: relative;
+			flex: 1;
+			height: 100%;
+			width: 100%;
+			padding: 2rem;
+			background: hsl(183, 100%, 15%);
+			border-radius: 15px;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+
+			label {
+				width: 100%;
+				margin-bottom: 30px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-direction: row;
+
+				/* Price totals */
+				> span {
+					color: $cyan-p-1;
+					font-size: 2.4rem;
+				}
+
+				p {
+					color: white;
+					display: flex;
+					flex-direction: column;
+
+					.subtext {
+						opacity: 0.5;
+						font-size: 0.8rem;
+					}
+				}
+
+				@include mobile-sm {
+					> span {
+						font-size: 1.8rem;
+					}
+					label {
+						flex-direction: column;
+					}
+				}
+			}
+
+			button {
+				margin-top: 5rem;
+			}
+		}
+
+		@include mobile {
+			flex-direction: column;
+		}
+	}
+	@include mobile-sm {
+		padding-inline: 0;
+	}
+}
